@@ -57,6 +57,7 @@ var verifyClass = function(constructor) {
           return constructor.apply(this, constructionArgs);
         } else {
           var instance = Object.create(constructor.prototype);
+          console.log(constructor.prototype);
           var constructorReturn = constructor.prototype.constructor.apply(instance, constructionArgs);
           if (constructorReturn && constructorReturn !== instance) {
             console.warn("Psuedoclassical constructor returned something explicitly (returns `this` implicitly by default).");
